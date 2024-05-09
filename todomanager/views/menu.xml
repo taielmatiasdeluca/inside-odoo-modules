@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_task_root"
+        name="TaskManager"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_task_list"
+        name="Listado"
+        parent="menu_task_root"
+        sequence="10"
+    />
+</odoo>

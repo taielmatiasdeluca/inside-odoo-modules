@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_taskmanager_task" model="ir.actions.act_window">
+        <field name="name">Task</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taskmanager.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="taskmanager_task_tree" model="ir.ui.view">
+        <field name="name">task.tree</field>
+        <field name="model">taskmanager.task</field>
+        <field name="arch" type="xml">
+            <tree string="taskTree">
+                <header>
+                    <button name="confirm" string="Confirm" class="oe_highlight" />
+                </header>
+                <field name="titulo" />
+                <field name="descripcion" />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <menuitem
+        id="menu_tasks"
+        name="Tasks"
+        parent="menu_task_list"
+        action="action_taskmanager_task"
+        sequence="10"
+    />
+
+
+</odoo>
