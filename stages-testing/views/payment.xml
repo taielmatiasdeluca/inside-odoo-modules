@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="stages_payment_form_view">
+      <field name="name">Payments Form View</field>
+      <field name="model">stages.payment</field>
+      <field name="inherit_id" ref="stages_payment_form"></field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <form string="Pedido de compra" class="o_purchase_order">
+                <header>
+                    <button name="action_rfq_send" string="Enviar por correo electrónico" type="object" context="{'send_rfq':True}" class="oe_highlight" data-hotkey="g" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;draft&quot;]]]}"/>
+                    <button name="print_quotation" string="Imprimir SdP" type="object" class="oe_highlight" data-hotkey="k" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;draft&quot;]]]}"/>
+                    <button name="button_confirm" type="object" string="Confirmar pedido" context="{'validate_analytic': True}" class="oe_highlight" id="bid_confirm" data-hotkey="v" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;sent&quot;]]]}"/>
+                    <button name="button_approve" type="object" string="Aprobar pedido" class="oe_highlight" data-hotkey="z" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;to approve&quot;]]]}"/>
+                    <button name="action_create_invoice" string="Crear factura" type="object" class="oe_highlight" context="{'create_bill':True}" data-hotkey="w" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, [&quot;state&quot;, &quot;not in&quot;, [&quot;purchase&quot;, &quot;done&quot;]], [&quot;invoice_status&quot;, &quot;in&quot;, [&quot;no&quot;, &quot;invoiced&quot;]]]}"/>
+                    <button name="action_rfq_send" string="Reenviar por correo electrónico" type="object" context="{'send_rfq':True}" data-hotkey="g" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;sent&quot;]]]}"/>
+                    <button name="print_quotation" string="Imprimir SdP" type="object" data-hotkey="k" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;sent&quot;]]]}"/>
+                    <button name="button_confirm" type="object" string="Confirmar pedido" id="draft_confirm" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;draft&quot;]]]}"/>
+                    <button name="action_rfq_send" string="Enviar PC por correo electrónico" type="object" context="{'send_rfq':False}" data-hotkey="g" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;purchase&quot;]]]}"/>
+                    <button name="confirm_reminder_mail" string="Confirmar la fecha de recepción" type="object" data-hotkey="o" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, &quot;|&quot;, [&quot;state&quot;, &quot;not in&quot;, [&quot;purchase&quot;, &quot;done&quot;]], [&quot;mail_reminder_confirmed&quot;, &quot;=&quot;, true], [&quot;date_planned&quot;, &quot;=&quot;, false]]}"/>
+                    <button name="action_create_invoice" string="Crear factura" type="object" context="{'create_bill':True}" data-hotkey="w" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, &quot;|&quot;, [&quot;state&quot;, &quot;not in&quot;, [&quot;purchase&quot;, &quot;done&quot;]], [&quot;invoice_status&quot;, &quot;not in&quot;, [&quot;no&quot;, &quot;invoiced&quot;]], [&quot;order_line&quot;, &quot;=&quot;, []]]}"/>
+                    <button name="button_draft" string="Establecer a borrador" type="object" data-hotkey="o" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;cancel&quot;]]]}"/>
+                    <button name="button_cancel" string="Cancelar" type="object" data-hotkey="x" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;draft&quot;, &quot;to approve&quot;, &quot;sent&quot;, &quot;purchase&quot;]]]}"/>
+                    <button name="button_done" type="object" string="Bloquear" data-hotkey="l" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;purchase&quot;]]]}"/>
+                    <button name="button_unlock" type="object" string="Desbloquear" data-hotkey="l" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;done&quot;]]]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,purchase" on_change="1" modifiers="{&quot;readonly&quot;: true}"/>
+                </header>
+                <group>
+                    <field name="titulo"></field>
+                    <field name="descripcion"></field>
+                    <field name="precio"></field>
+                    <field name="stages"></field>
+            </group>
+        </form>
+      </field>
+    </record>
+    
+
+<odoo/>
+
