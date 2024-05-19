@@ -3,16 +3,17 @@
   <data>
     <!-- MAIN TREE VIEW  -->
     <record id="view_stages_custom_tree" model="ir.ui.view">
-            <field name="name">Stages Custom Tree View</field>
-            <field name="model">stages.payment</field>
-            <field name="arch" type="xml">            
-                <tree string="Lista de Elementos"  create="false">
-                    <field name="titulo"/>
-                    <field name="descripcion"/>
-                    <field name="precio"/>
-                    <field name="stages"/>
-                </tree>
-            </field>
+      <field name="name">stages.payment.tree</field>
+      <field name="model">stages.payment</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de Elementos">
+          <field name="titulo"/>
+          <field name="descripcion"/>
+          <field name="precio"/>
+          <field name="stages" string="Estado"/>
+        </tree>
+      </field>
     </record>
 
   </data>

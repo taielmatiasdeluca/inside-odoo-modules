@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
+    <data>
 
 
-      <!-- Define el custon new form -->
-      <record id="view_stages_form" model="ir.ui.view">
-          <field name="name">Stages Custom Form View</field>
-          <field name="model">stages.payment</field>
-          <field name="arch" type="xml">
-              <form string="Custom Form Title">
-                  <!-- Define los campos del formulario -->
-                  <group>
-                      <group>
-                          <field name="titulo"/>
-                          <field name="descripcion"/>
-                          <field name="precio"/>
-                      </group>
-                      <group>
-                          <field name="stages"/>
-                          <!-- Otros campos -->
-                      </group>
-                  </group>
-                  <!-- Define otros elementos del formulario -->
-                    <footer>
-                        <button name="action_show_payment_details" string="Ver Detalles"/>
-                        <!-- Otros botones -->
-                    </footer>
-              </form>
-          </field>
-      </record>
+        <!-- Define el custon new form -->
+        <record id="view_stages_form" model="ir.ui.view">
+            <field name="name">Stages Custom Form View</field>
+            <field name="model">stages.payment</field>
+            <field name="arch" type="xml">
+                <form string="Custom Form Title">
+                    <!-- Define los campos del formulario -->
+                    <header>
+                        <button string="Marcar como completado" name="markAsCompleted" type="object"/>
+
+                        <field name="stages" widget="statusbar" on_change="1" modifiers="{&quot;readonly&quot;: true}" />
+                    </header>
+                    <group>
+                        <group>
+                            <field name="titulo" string="Capolidad"/>
+                            <field name="descripcion"/>
+                            <field name="precio"/>
+                        </group>
+                        <group>
+                            <field name="stages" string="Estado"/>
+                            <!-- Otros campos -->
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
 
 
-  </data>
+    </data>
 </odoo>
 
