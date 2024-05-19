@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Define el custon new form -->
+    <record id="view_stages_custom_details" model="ir.ui.view">
+        <field name="name">Stages Payment Form</field>
+        <field name="model">stages.payment</field>
+        <field name="arch" type="xml">
+              <form string="Detalles del Pago">
+                <group>
+                  <button string="Mark as Todo" />
+                  <button string="Check Availability" />
+                  <field 
+                    name="stages"
+                    widget="statusbar"
+                    statusbar_visible="draft,confirmed,assigned,done"
+                    on_change="1"
+                    modifiers="{&quot;readonly&quot;: true}"
+                  />
+                  <field name="titulo"/>
+                  <field name="descripcion"/>
+                  <field name="precio"/>
+                </group>
+              </form>
+        </field>
+    </record>
+
+  </data>
+</odoo>

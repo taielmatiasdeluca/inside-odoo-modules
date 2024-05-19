@@ -9,3 +9,7 @@ class Payment(models.Model):
     precio = fields.Float()
     stages = fields.Selection([('waiting', 'En espera'), ('working', "Trabajando"), ("staging", "Esperando aprobacion"),('approved', "Aprobado")])
     
+
+    def action_save(self):
+        print(self)
+        return True
