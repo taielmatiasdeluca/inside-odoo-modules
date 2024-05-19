@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MENU PRINCIPAL -->
+        <menuitem id="menu_root" name="Seguimiento(Test)" sequence="10" />
+
+        <record id="action_custom_model" model="ir.actions.act_window">
+            <field name="name">Stages</field>
+            <field name="res_model">stages.payment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="menu_action_custom_form">
+            <field name="name">Nuevo pago</field>
+            <field name="res_model">stages.payment</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_stages_form"/>
+        </record>
+
+        <!-- Menú items -->
+
+        <menuitem name="Pagos" id="stages_menu_pagos" parent="menu_root" action="action_custom_model" />
+        <menuitem id="menu_item_custom_form" name="Nuevo Pago" parent="stages_menu_pagos" action="menu_action_custom_form" />
+
+    </data>
+</odoo>

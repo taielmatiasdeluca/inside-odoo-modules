@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- MAIN TREE VIEW  -->
+    <record id="view_stages_custom_tree" model="ir.ui.view">
+      <field name="name">stages.payment.tree</field>
+      <field name="model">stages.payment</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de Elementos">
+          <field name="titulo"/>
+          <field name="descripcion"/>
+          <field name="precio"/>
+          <field name="stages" string="Estado"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>
